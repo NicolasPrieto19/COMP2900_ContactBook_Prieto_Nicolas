@@ -74,7 +74,7 @@ public class Contact : IEquatable<Contact>
     // Si el objeto es un contacto, se compara con el método Equals(Contact)
     public override bool Equals(object? obj)
     {
-        return base.Equals(obj as Contact);
+        return Equals(obj as Contact);
     }
 
     public static bool operator ==(Contact? x, Contact? y)
