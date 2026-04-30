@@ -5,13 +5,13 @@ namespace ContactBook;
 public class ContactBook
 {
     public const string NEXT_PAGE = "+";
-    public const string PREVIOUS_PAGE = "-";
+    public const string PREV_PAGE = "-";
     public const string GOTO_PAGE = "G";
     public const string PAGE_SIZE = "S";
     public const string CREATE_CONTACT = "A";
     public const string REVIEW_CONTACT = "R";
     public const string UPDATE_CONTACT = "U";
-    public const string DELETE_CONTACTS = "D";
+    public const string DELETE_CONTACT = "D";
     public const string FIND_CONTACTS = "F";
     public const string ORDER_CONTACTS = "O";
     public const string DEDUPLICATE_CONTACTS = "M"  ;
@@ -19,8 +19,8 @@ public class ContactBook
 
     public readonly string[] COMMANDS = new string[]
     {
-        NEXT_PAGE, PREVIOUS_PAGE, GOTO_PAGE, PAGE_SIZE, CREATE_CONTACT, REVIEW_CONTACT,
-        UPDATE_CONTACT, DELETE_CONTACTS, FIND_CONTACTS, ORDER_CONTACTS, DEDUPLICATE_CONTACTS, EXIT
+        NEXT_PAGE, PREV_PAGE, GOTO_PAGE, PAGE_SIZE, CREATE_CONTACT, REVIEW_CONTACT,
+        UPDATE_CONTACT, DELETE_CONTACT, FIND_CONTACTS, ORDER_CONTACTS, DEDUPLICATE_CONTACTS, EXIT
     };
     
     private List<Contact> allContacts;
@@ -112,6 +112,14 @@ public class ContactBook
 
     private void ShowInputOptions()
     {
+        string inputOptions = ""
+        + $"[{NEXT_PAGE}] Next Page | [{CREATE_CONTACT}] Create Contact | [{DELETE_CONTACT}] Delete Contact | [{DEDUPLICATE_CONTACTS}] Deduplicate Contacts\n"
+        + $"[{PREV_PAGE}] Prev Page | [{REVIEW_CONTACT}] Review Contact | [{FIND_CONTACTS }] Find Contacts  | [{PAGE_SIZE           }] Set Page Size\n"
+        + $"[{GOTO_PAGE}] Goto Page | [{UPDATE_CONTACT}] Update Contact | [{ORDER_CONTACTS}] Order Contacts | [{EXIT                }] Exit\n"
+        + $"\n> ";
+
+        Console.WriteLine("Input Options:");
+        Console.WriteLine(inputOptions);
 
     }
 
