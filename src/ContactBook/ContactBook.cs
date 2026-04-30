@@ -118,14 +118,14 @@ public class ContactBook
         + $"[{GOTO_PAGE}] Goto Page | [{UPDATE_CONTACT}] Update Contact | [{ORDER_CONTACTS}] Order Contacts | [{EXIT                }] Exit\n"
         + $"\n> ";
 
-        Console.WriteLine("Input Options:");
+        Console.WriteLine();
         Console.WriteLine(inputOptions);
 
     }
 
     private string GetInput()
     {
-        return "";
+        return Console.ReadLine()?.Trim().ToUpper() ?? "";
     }
 
     private bool IsValidInput(string input)
