@@ -194,6 +194,8 @@ public class ContactBook
 
     private void ShowExitScreen()
     {
+        Console.Clear();
+        Console.WriteLine("Thank you for using Nicola's Contact Book. Goodbye!");
 
     }
 
