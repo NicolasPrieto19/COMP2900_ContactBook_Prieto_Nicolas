@@ -8,7 +8,7 @@ public class ContactBook
     public const string PREV_PAGE = "-";
     public const string GOTO_PAGE = "G";
     public const string PAGE_SIZE = "S";
-    public const string CREATE_CONTACT = "A";
+    public const string CREATE_CONTACT = "C";
     public const string REVIEW_CONTACT = "R";
     public const string UPDATE_CONTACT = "U";
     public const string DELETE_CONTACT = "D";
@@ -39,10 +39,9 @@ public class ContactBook
         string input;
         do
         {
-            ShowContacts();
-
             do
             {
+                ShowContacts();
                 ShowInputOptions();
                 input = GetInput();
             }
@@ -125,12 +124,21 @@ public class ContactBook
 
     private string GetInput()
     {
-        return Console.ReadLine()?.Trim().ToUpper() ?? "";
+        return Console.ReadLine()!.ToUpper();
     }
 
     private bool IsValidInput(string input)
     {
-        return true;
+        if(!COMMANDS.Contains(input))
+        {
+            Console.WriteLine($"Invalid input. Please try again.");
+            PressEnterToContinue();
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
 
     private void ProcessInput(string input)
