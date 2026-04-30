@@ -118,7 +118,7 @@ public class ContactBook
         + $"\n> ";
 
         Console.WriteLine();
-        Console.WriteLine(inputOptions);
+        Console.Write(inputOptions);
 
     }
 
@@ -143,7 +143,45 @@ public class ContactBook
 
     private void ProcessInput(string input)
     {
-
+        switch(input)
+        {
+            case NEXT_PAGE:
+                Console.Write("> Next Page");
+                break;
+            case PREV_PAGE:
+                Console.Write("> Prev Page");
+                break;
+            case GOTO_PAGE:
+                Console.Write("> Goto Page");
+                break;
+            case PAGE_SIZE:
+                Console.Write("> Set Page Size");
+                break;
+            case CREATE_CONTACT:
+                Console.Write("> Create Contact");
+                break;
+            case REVIEW_CONTACT:
+                Console.Write("> Review Contact");
+                break;
+            case UPDATE_CONTACT:
+                Console.Write("> Update Contact");
+                break;
+            case DELETE_CONTACT:
+                Console.Write("> Delete Contact");
+                break;
+            case FIND_CONTACTS:
+                Console.Write("> Find Contacts");
+                break;
+            case ORDER_CONTACTS:
+                Console.Write("> Order Contacts");
+                break;
+            case DEDUPLICATE_CONTACTS:
+                Console.Write("> Deduplicate Contacts");
+                break;
+            case EXIT:
+                Console.Write("> Exit");
+                break;
+        }
     }
 
     private bool ConfirmExit()
