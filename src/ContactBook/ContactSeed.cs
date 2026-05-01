@@ -57,6 +57,7 @@ public static class ContactSeed
     new Contact("Sergio", "Aguirre", "407-555-8874", "sergio.aguirre@protonmail.com"),
     new Contact("Gloria", "Zamora", "813-555-7763", "gloria.zamora@live.com"),
     new Contact("Victor", "Rosales", "954-555-6652", "victor.rosales@yahoo.com"),
-    new Contact("Carmen", "Beltran", "321-555-5541", "carmen.beltran@gmail.com")
+    new Contact("Carmen", "Beltran", "321-555-5541", "carmen.beltran@gmail.com"),
+    new Contact("Carmen", "Beltran", "777-777-777", "carmen.beltran@gmail.com"),
 };
 }
