@@ -181,6 +181,7 @@ public class ContactBook
                 break;
             case REVIEW_CONTACT:
                 Console.Write("> Review Contact");
+                ReviewContact();
                 break;
             case UPDATE_CONTACT:
                 Console.Write("> Update Contact");
@@ -274,6 +275,31 @@ public class ContactBook
              Console.WriteLine("Contact creation cancelled.");
         }
          PressEnterToContinue();
+    }
+
+    private void ReviewContact()
+    {
+        int index = GetInt(", enter Index: ", 1, allContacts.Count) - 1;
+        Console.Clear();
+        
+        ReviewContact(index);
+        PressEnterToContinue();
+    }
+    private void ReviewContact(int index)
+    {
+        Contact c= allContacts[index];
+        Console.Clear();
+        Console.WriteLine(new string('#',80));
+        Console.WriteLine("Review Contact: ");
+        Console.WriteLine(new string('#',80));
+        Console.WriteLine();
+
+        Console.WriteLine($"First Name: {c.GetFname()}");
+        Console.WriteLine($" Last Name: {c.GetLname()}");
+        Console.WriteLine($"      Phone: {c.GetPhone()}");
+        Console.WriteLine($"      Email: {c.GetEmail()}");
+
+        Console.WriteLine();
     }
 
     private bool ConfirmExit()
