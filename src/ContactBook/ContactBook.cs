@@ -1,4 +1,5 @@
 using System.Drawing;
+using System.Formats.Tar;
 
 namespace ContactBook;
 
@@ -172,6 +173,7 @@ public class ContactBook
                 break;
             case PAGE_SIZE:
                 Console.Write("> Set Page Size");
+                SetPageSize();
                 break;
             case CREATE_CONTACT:
                 Console.Write("> Create Contact");
@@ -224,6 +226,18 @@ public class ContactBook
     private void GotoPage(List<Contact> contacts,ref int page, int size)
     {
         page = GetInt("Enter page number: ", 1, PageCount(contacts, size));
+    }
+    
+    private void SetPageSize()
+    {
+        SetPageSize(ref page,ref size);
+    }
+
+    private void SetPageSize(ref int page, ref int size)
+    {
+        int max = Console.WindowHeight - 10;
+        size = GetInt("Enter page size: ", 1, max);
+        page = 1;
     }
 
     private bool ConfirmExit()
