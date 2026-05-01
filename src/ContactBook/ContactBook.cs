@@ -3,6 +3,7 @@ using System.Formats.Tar;
 
 namespace ContactBook;
 
+using static ContactComparer;
 public class ContactBook
 {
     public const string YES = "Y";
@@ -199,6 +200,7 @@ public class ContactBook
                 break;
             case ORDER_CONTACTS:
                 Console.Write("> Order Contacts");
+                orderContacts();
                 break;
             case DEDUPLICATE_CONTACTS:
                 Console.Write("> Deduplicate Contacts");
@@ -399,6 +401,23 @@ public class ContactBook
             Console.WriteLine("Operation cancelled. Contacts not searched.");
             PressEnterToContinue();
         }
+    }
+
+    private void orderContacts()
+    {
+        SortType[] sortType = new SortType[]
+        {
+            SortType.fname, SortType.lname, SortType.phone, SortType.Email
+        };
+
+        int index = GetInt("Sort contact by [0] First Name, [1] Last Name, [2] Phone, [3] Email: ", 0, 3);
+
+        ContactComparer ccp = new ContactComparer(sortType[index]);
+        allContacts.Sort(ccp);
+        filteredContacts.Sort(ccp);
+        page = 1;
+         Console.WriteLine("Operation completed successfully. Contacts ordered.");
+         PressEnterToContinue();
     }
 
     private bool ConfirmExit()
