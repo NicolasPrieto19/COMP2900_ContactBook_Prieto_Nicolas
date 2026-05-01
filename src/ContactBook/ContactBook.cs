@@ -185,6 +185,7 @@ public class ContactBook
                 break;
             case UPDATE_CONTACT:
                 Console.Write("> Update Contact");
+                UpdateContact();
                 break;
             case DELETE_CONTACT:
                 Console.Write("> Delete Contact");
@@ -300,6 +301,62 @@ public class ContactBook
         Console.WriteLine($"      Email: {c.GetEmail()}");
 
         Console.WriteLine();
+    }
+
+    private void UpdateContact()
+    {
+        int index = GetInt(", enter Index: ", 1, allContacts.Count) - 1;
+        Console.Clear();
+        
+        UpdateContact(index);
+        PressEnterToContinue();
+    }
+
+    private void UpdateContact(int index)
+    {
+        Contact c= allContacts[index];
+        Console.Clear();
+        Console.WriteLine(new string('#',80));
+        Console.WriteLine("Update Contact: ");
+        Console.WriteLine(new string('#',80));
+        Console.WriteLine();
+        Console.WriteLine("Review Contact: ");
+        Console.WriteLine();
+
+        Console.WriteLine($"First Name: {c.GetFname()}");
+        Console.WriteLine($" Last Name: {c.GetLname()}");
+        Console.WriteLine($"      Phone: {c.GetPhone()}");
+        Console.WriteLine($"      Email: {c.GetEmail()}");
+
+        Console.WriteLine();
+
+        Console.WriteLine(new string('#',80));
+        Console.WriteLine();
+
+        if(Confirm("Do you want to update this contact? ", NO))
+        {
+        Console.Write($"First Name ({c.GetFname()}): ");
+        string fname =Console.ReadLine()!;
+        Console.Write($"Last Name ({c.GetLname()}): ");
+        string lname =Console.ReadLine()!;
+        Console.Write($"Phone ({c.GetPhone()}): ");
+        string phone =Console.ReadLine()!;
+        Console.Write($"Email ({c.GetEmail()}): ");
+        string email =Console.ReadLine()!;
+
+        if (Confirm("Do you want to save changes to this contact? ", YES))
+        {
+            c.SetFname(string.IsNullOrWhiteSpace(fname) ? c.GetFname() : fname);
+            c.SetLname(string.IsNullOrWhiteSpace(lname) ? c.GetLname() : lname);
+            c.SetPhone(string.IsNullOrWhiteSpace(phone) ? c.GetPhone() : phone);
+            c.SetEmail(string.IsNullOrWhiteSpace(email) ? c.GetEmail() : email);
+             Console.WriteLine("Contact updated successfully.");
+        }
+        else
+        {
+             Console.WriteLine("Contact update cancelled.");
+        }
+        }
     }
 
     private bool ConfirmExit()
