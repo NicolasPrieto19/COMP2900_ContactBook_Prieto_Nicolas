@@ -189,6 +189,7 @@ public class ContactBook
                 break;
             case DELETE_CONTACT:
                 Console.Write("> Delete Contact");
+                DeleteContact();
                 break;
             case FIND_CONTACTS:
                 Console.Write("> Find Contacts");
@@ -357,6 +358,25 @@ public class ContactBook
              Console.WriteLine("Contact update cancelled.");
         }
         }
+    }
+
+    private void DeleteContact()
+    {
+        int index = GetInt(", enter Index: ", 1, allContacts.Count) - 1;
+        Console.Clear();
+        
+        ReviewContact(index);
+
+        if (Confirm("Do you want to delete this contact? ", NO))
+        {
+            allContacts.RemoveAt(index);
+             Console.WriteLine("Contact deleted successfully.");
+        }
+        else
+        {
+             Console.WriteLine("Contact deletion cancelled.");
+        }
+         PressEnterToContinue();
     }
 
     private bool ConfirmExit()
