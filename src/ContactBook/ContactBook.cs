@@ -177,6 +177,7 @@ public class ContactBook
                 break;
             case CREATE_CONTACT:
                 Console.Write("> Create Contact");
+                CreateContact();
                 break;
             case REVIEW_CONTACT:
                 Console.Write("> Review Contact");
@@ -238,6 +239,41 @@ public class ContactBook
         int max = Console.WindowHeight - 10;
         size = GetInt("Enter page size: ", 1, max);
         page = 1;
+    }
+
+    private void CreateContact()
+    {
+        Console.Clear();
+        Console.WriteLine(new string('#',80));
+        Console.WriteLine("Create Contact");
+        Console.WriteLine(new string('#',80));
+        Console.WriteLine();
+
+        Console.Write("Enter First Name");
+        Console.Write(" > ");
+        string fname =Console.ReadLine()!;
+        Console.Write("Enter Last Name");
+        Console.Write(" > ");    
+        string lname =Console.ReadLine()!;
+        Console.Write("Enter Phone");
+        Console.Write(" > ");
+        string phone =Console.ReadLine()!;
+        Console.Write("Enter Email");
+        Console.Write(" > ");
+        string email =Console.ReadLine()!;
+
+        if (Confirm("Do you want to save this contact? ", YES))
+        {
+            Contact c = new Contact(fname, lname, phone, email);
+            allContacts.Add(c);
+            page = PageCount(allContacts, size);
+             Console.WriteLine("Contact created successfully.");
+        }
+        else
+        {
+             Console.WriteLine("Contact creation cancelled.");
+        }
+         PressEnterToContinue();
     }
 
     private bool ConfirmExit()
