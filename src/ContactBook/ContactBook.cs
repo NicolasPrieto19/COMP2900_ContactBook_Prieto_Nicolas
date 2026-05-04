@@ -35,8 +35,6 @@ public class ContactBook
     private int size;
     private bool isExit = false;
 
-    //Todos los contacs se guardan en memoria, no hay persistencia. 
-    // Se pueden pasar contactos al constructor para iniciar con algunos contactos ya creados.
     public ContactBook(List<Contact> contacts = null!)
     {
       allContacts = (contacts == null) ?  new List<Contact>() : contacts;

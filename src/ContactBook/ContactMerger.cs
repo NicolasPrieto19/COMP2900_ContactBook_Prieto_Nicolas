@@ -74,5 +74,5 @@ public class ContactMerger
                 parent[rootB] = rootA;
             }
         }
-    } // Llave 1: Cierra DuplicateSets
-} // Llave 2: Cierra ContactMerger
+    } 
+} 

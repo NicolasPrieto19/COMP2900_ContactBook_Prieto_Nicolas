@@ -59,5 +59,6 @@ public static class ContactSeed
     new Contact("Victor", "Rosales", "954-555-6652", "victor.rosales@yahoo.com"),
     new Contact("Carmen", "Beltran", "321-555-5541", "carmen.beltran@gmail.com"),
     new Contact("Carmen", "Beltran", "777-777-777", "carmen.beltran@gmail.com"),
+    new Contact("Victor", "Rosales", "954-555-6652", "victor.rosales@gmail.com"),
 };
 }
